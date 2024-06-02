@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ lesson.title }} - оценки</title>
+</head>
+<body>
+    <h1>Занятие: {{ lesson.title }}</h1>
+    <h2>Дата: {{ lesson.date }}</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Студент</th>
+                <th>Посещение</th>
+                <th>Активность</th>
+                <th>Выступление</th>
+                <th>Всего</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.student.first_name }} {{ grade.student.last_name }}</td>
+                    <td>{{ grade.attendance_score }}</td>
+                    <td>{{ grade.activity_score }}</td>
+                    <td>{{ grade.presentation_score }}</td>
+                    <td>{{ grade.total_score }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'lessons_list' %}">К общему списку занятий</a></p>
+</body>
+</html>

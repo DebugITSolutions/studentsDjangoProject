@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Студент</title>
+</head>
+<body>
+    <h1>Оценки {{ student.first_name }} {{ student.last_name }}</h1>
+    <p><a href="{% url 'index' %}">Вернутся на главную страницу</a></p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Занятие</th>
+                <th>Дата</th>
+                <th>Присутствие</th>
+                <th>Активность</th>
+                <th>Выступление</th>
+                <th>Всего</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.lesson.title }}</td>
+                    <td>{{ grade.lesson.date }}</td>
+                    <td>{{ grade.attendance_score }}</td>
+                    <td>{{ grade.activity_score }}</td>
+                    <td>{{ grade.presentation_score }}</td>
+                    <td>{{ grade.total_score }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Итоги</h2>
+    <ul>
+        <li>Всего баллов за присутствие: {{ total_attendance_score }}</li>
+        <li>Всего баллов за активность: {{ total_activity_score }}</li>
+        <li>Всего баллов за выступление: {{ total_presentation_score }}</li>
+    </ul>
+</body>
+</html>
