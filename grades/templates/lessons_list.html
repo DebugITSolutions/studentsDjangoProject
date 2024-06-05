@@ -1,15 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Список занятий</title>
+    <link rel="stylesheet" href="{% static 'stud-maksim/index.css' %}" type="text/css">
 </head>
 <body>
-    <h1>Список занятий</h1>
-    <p><a href="{% url 'index' %}">Вернутся на главную страницу</a></p>
-    <ul>
-        {% for lesson in all_lessons %}
-            <li><a href="{% url 'lesson_detail' lesson.id %}">{{ lesson.title }} - {{ lesson.date }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="main-text-content">
+            <h1 class="main-text">Список занятий</h1>
+        </div>
+        <p><a href="{% url 'index' %}">Вернуться на главную страницу</a></p>
+        <ul class="lesson-list">
+            {% for lesson in all_lessons %}
+                <li><a href="{% url 'lesson_detail' lesson.id %}">{{ lesson.title }} - {{ lesson.date }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

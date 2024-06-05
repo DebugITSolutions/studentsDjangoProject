@@ -1,7 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Студент</title>
+    <link rel="stylesheet" href="{% static 'stud-maksim/index.css'%}" type="text/css">
 </head>
 <body>
     <h1>Оценки {{ student.first_name }} {{ student.last_name }}</h1>
